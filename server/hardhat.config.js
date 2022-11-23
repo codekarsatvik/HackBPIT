@@ -20,9 +20,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.9",
   networks : {
-    rinkeby : {
-      url : "https://eth-rinkeby.alchemyapi.io/v2/68FtLXzgvQkhFw5EhsPll6zVqkIoyRbp",
-      accounts : ["34b98faf9eedbc9e2593fd0b5e4b65a57cc57abdeab9623b5d71648c5c43b006"]
+    matic : {
+      url : "https://rpc-mumbai.maticvigil.com",
+      accounts : ["48f92b5769fc113b75e05ff1b6ee9b71b507f8c72f40fe4f914f4a99fd847807"]
     }
   }
 };
