@@ -3,6 +3,7 @@ import React,{useState} from "react";
 import {create } from "ipfs-http-client";
 // const ipfs = window.IpfsHttpClient();
 import { Buffer } from "buffer";
+import Navbar from "./Navbar";
 
 const auth =
     'Basic ' + Buffer.from('2HwL4q1E5byYftu9Mb4cNBzOppp' + ':' + '80cde466138574d506a24e5fa9604b81').toString('base64');
@@ -83,9 +84,7 @@ const Reward = ({mintNFT}) => {
 
     return (
         <div className="" style={{  backgroundColor : "#0A0B1E" }}>
-            <div className='' style={{height: "100px" , backgroundColor : "#24294f" , width: "100%"}}>
-                {/* <img src={} alt="" /> */}
-            </div>
+            <Navbar/>
             <div className="" style={{display : "flex" , flexDirection : "row" , justifyContent : "space-between" , padding: "70px 10vw 0 10vw"}}>
                 <div style={{color : "white" , width: "50%"}}>
                    <div style={{fontSize : "55px" , color : "lightgray"}}>

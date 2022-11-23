@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import Navbar from './Navbar';
 function Owner({certificateContract , currentAccount}) {
 
     const [tokenId , setTokenId ] = useState("");
@@ -12,6 +12,8 @@ function Owner({certificateContract , currentAccount}) {
     }
 
   return (
+    <div>
+    <Navbar/>
     <div style={{backgroundColor : "#3b4380" , height : "100vh" , display: "flex" , justifyContent: "center" }}>
         <div style={{width: "60vw" , display: "flex" , alignItems: "center" , flexDirection: "column" , marginTop : "200px"}}>    
             <div style={{color : "white" , fontSize : "30px" , fontWeight : "600"}} >Get the owner of product</div>
@@ -36,7 +38,7 @@ function Owner({certificateContract , currentAccount}) {
                 </div>
             </div>
         </div>
-                
+    </div>            
   )
 }
 

@@ -6,6 +6,7 @@ import Avatar from 'avataaars';
 import { Button } from "@material-ui/core";
 import Popup from "./Popup";
 import im from "./img/sad.png"
+import Navbar from './Navbar';
 
 
 function Profile({currentAccount , contract , balance , tokenName ,connectButtonText , certificateContract , deleteNFT }) {
@@ -53,7 +54,7 @@ function Profile({currentAccount , contract , balance , tokenName ,connectButton
 
 
   
-  const getdetails = async(url) =>{
+  const getdetails = async(url, tokenID) =>{
     
 
        var maindata  = await fetch(url) // first step
@@ -62,6 +63,8 @@ function Profile({currentAccount , contract , balance , tokenName ,connectButton
          return data 
       })
       .catch(error => console.error(error))
+      
+      maindata.tokenID = tokenID;
       console.log(maindata);
       return maindata
 
@@ -70,8 +73,9 @@ function Profile({currentAccount , contract , balance , tokenName ,connectButton
     let temp = await certificateContract.getAllCertificates(currentAccount);
     let ans=[]
     temp.map(async (item)=> {
-      ans[item.toNumber()] = await getdetails(await certificateContract.tokenURI(item.toNumber()));
-      console.log(ans[item.toNumber()]);
+      
+      ans[item.toNumber()] = await getdetails(await certificateContract.tokenURI(item.toNumber()), item.toNumber());
+      
     })
     setTokenURI(ans);
   }
@@ -107,6 +111,7 @@ function Profile({currentAccount , contract , balance , tokenName ,connectButton
 
   return (
     <div className="" style={{backgroundColor : "#0A0B1E"}}>
+      <Navbar/>
       <div className='' style={{height: "100px" , backgroundColor : "#24294f" , width: "100%"}}>
       </div>
       <div className=''>
@@ -247,6 +252,9 @@ function Profile({currentAccount , contract , balance , tokenName ,connectButton
                                 </div>
                                 <div style={{color  :"white"}}>
                                     Warrenty Period : {item.warrentyPeriod}
+                                </div>
+                                <div style={{color  :"white"}}>
+                                    Token ID ( For Transfer and Ownership claim ) : {item.tokenID}
                                 </div>
                             </div>
                         </div>

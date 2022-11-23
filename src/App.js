@@ -10,6 +10,7 @@ import {ethers} from "ethers";
 import Reward from "./Reward";
 import Transfer from "./Transfer";
 import Owner from "./Owner";
+import TokenHistory from "./TokenHistory";
 
 const token_abi = YTK.abi;
 const certificate_abi = certificate.abi;
@@ -182,6 +183,10 @@ const transferNFT = async ( toAddress , tokenId) => {
             } />
             <Route path="/" element={<Reward 
               mintNFT = {mintNFT}
+            /> } />
+          
+            <Route path="/tokenhistory" element={<TokenHistory
+             
             /> } />
             </Routes>
           </BrowserRouter>
